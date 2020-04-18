@@ -2,8 +2,8 @@ library("RMySQL")
 library("stringr")
 library("rjson")
 
-connect=function(name){
-  dados_conn=fromJSON(file='connections.json')
+connect=function(name, connections_file){
+  dados_conn=fromJSON(file=connections_file)
   dados_conn=unlist(dados_conn[name])
   con=dbConnect(MySQL(),
                 user=dados_conn[1],
